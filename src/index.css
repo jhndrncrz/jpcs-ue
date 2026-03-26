@@ -1,0 +1,262 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Monomaniac+One&family=Outfit:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@font-face {
+  font-family: "Architype Aubette W90";
+  src: url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.eot");
+  src:
+    url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/26afb49b8b7dda2c10686589d6fc7b55.svg#Architype Aubette W90")
+      format("svg");
+}
+
+@layer base {
+  :root {
+    /* ===========================================
+       CORE PALETTE
+       =========================================== */
+    --c-yellow: #ffef19;
+    --c-yellow-dim: #ffb119;
+    --c-orange: #ff8200;
+    --c-orange-fire: #ff5719;
+    --c-red: #ff0000;
+    --c-red-dark: #ac131e;
+
+    --c-dark-bg: #0d0505;
+    --c-dark-surface: #1a0a0a;
+    --c-light-bg: #ffffff;
+    --c-light-surface: #fff8f0;
+
+    /* ===========================================
+       THEME VARIABLES (Light Default)
+       =========================================== */
+    --background: var(--c-light-bg);
+    --foreground: #1a1a1a;
+    --foreground-muted: #666666;
+
+    --surface: var(--c-light-surface);
+    --border: rgba(172, 19, 30, 0.15);
+
+    --primary: var(--c-red-dark);
+    --primary-hover: #8b1019;
+    --primary-fg: #ffffff;
+
+    --accent: var(--c-orange);
+    --accent-fg: #ffffff;
+
+    --danger: #ac131e;
+    --danger-hover: #8b1019;
+    --primary-ghost-hover: rgba(172, 19, 30, 0.1);
+
+    /* Gradients */
+    --gradient-main: linear-gradient(
+      135deg,
+      var(--c-orange) 0%,
+      var(--c-orange-fire) 50%,
+      var(--c-red-dark) 100%
+    );
+    --gradient-text: linear-gradient(
+      135deg,
+      var(--c-red-dark) 0%,
+      var(--c-orange-fire) 100%
+    );
+
+    /* Hero Section - Light Mode (keeping it relatively dark for premium feel) */
+    --hero-bg: linear-gradient(135deg, #ac131e 0%, #ff5719 100%);
+    --hero-text: rgba(255, 255, 255, 0.95);
+    --hero-accent-1: var(--c-yellow);
+    --hero-accent-2: var(--c-yellow-dim);
+    --hero-accent-3: #ffffff;
+
+    /* Grid Overlay Colors */
+    --grid-line: rgba(172, 19, 30, 0.1);
+    --grid-line-glow: rgba(255, 87, 25, 0.15);
+
+    /* Fonts */
+    --font-logo: "Monomaniac One", sans-serif;
+    --font-title: "Architype Aubette W90", sans-serif;
+    --font-heading: "JetBrains Mono", monospace;
+    --font-body: "Outfit", sans-serif;
+
+    /* Logo Branding */
+    --logo-brackets: var(--c-red-dark);
+    --logo-text: var(--c-orange);
+    --logo-glow: rgba(255, 130, 0, 0.4);
+    
+    /* Spacing */
+    --radius: 0.5rem;
+    --radius-full: 9999px;
+    --header-height: 80px;
+  }
+
+  .dark {
+    /* ===========================================
+       THEME VARIABLES (Dark Mode)
+       =========================================== */
+    --background: var(--c-dark-bg);
+    --foreground: #ffffff;
+    --foreground-muted: #a0a0a0;
+
+    --surface: var(--c-dark-surface);
+    --border: rgba(255, 87, 25, 0.2);
+
+    --primary: var(--c-orange-fire);
+    --primary-hover: #ff6b30;
+    --primary-fg: #ffffff;
+
+    --accent: var(--c-yellow);
+    --accent-fg: #000000;
+
+    --danger: #ff0000;
+    --danger-hover: #ff3333;
+    --primary-ghost-hover: rgba(255, 87, 25, 0.15);
+
+    /* Gradients */
+    --gradient-main: linear-gradient(135deg, #1a0505 0%, #2d0a0a 100%);
+    --gradient-text: linear-gradient(
+      135deg,
+      var(--c-yellow) 0%,
+      var(--c-orange) 100%
+    );
+
+    /* Hero Section - Dark Mode */
+    --hero-bg: linear-gradient(135deg, #0d0505 0%, #2d0a0a 100%);
+    --hero-text: rgba(255, 255, 255, 0.9);
+    --hero-accent-1: var(--c-yellow);
+    --hero-accent-2: var(--c-yellow-dim);
+    --hero-accent-3: #ffffff;
+
+    /* Logo Branding */
+    --logo-brackets: var(--c-orange-fire);
+    --logo-text: var(--c-yellow);
+    --logo-glow: rgba(255, 130, 0, 0.6);
+
+    /* Grid Overlay Colors */
+    --grid-line: rgba(255, 255, 255, 0.08);
+    --grid-line-glow: rgba(255, 87, 25, 0.1);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-body bg-background text-foreground antialiased relative overflow-x-hidden transition-colors duration-300;
+  }
+
+  h1 {
+    @apply font-logo uppercase tracking-wider leading-tight text-5xl md:text-7xl;
+  }
+
+  h2 {
+    @apply font-title uppercase tracking-widest leading-tight text-3xl md:text-5xl;
+  }
+
+  h3 {
+    @apply font-heading uppercase tracking-wide leading-snug text-xl md:text-2xl;
+  }
+
+  h4 {
+    @apply font-heading uppercase tracking-wide leading-snug text-lg md:text-xl;
+  }
+
+  h5 {
+    @apply font-heading uppercase tracking-wide leading-snug text-base md:text-lg;
+  }
+
+  h6 {
+    @apply font-heading uppercase tracking-wide leading-snug text-sm md:text-base;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-heading font-semibold no-underline cursor-pointer transition-all duration-300 gap-2 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--primary)] text-white border-none;
+  }
+
+  .dark .btn-primary {
+    @apply text-white;
+  }
+
+  .btn-danger {
+    @apply bg-[var(--danger)] text-white border-none hover:bg-[var(--danger-hover)];
+  }
+
+  .btn-outline {
+    @apply bg-[var(--surface)] border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--primary)] hover:text-[var(--primary)];
+  }
+
+  .btn-ghost {
+    @apply hover:text-[var(--primary)] text-[var(--foreground-muted)] transition-colors;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--primary-ghost-hover);
+  }
+
+  /* Text Shadow Utility */
+  .text-shadow-glow {
+    text-shadow: 0 0 20px var(--logo-glow);
+  }
+
+  .logo-shadow {
+    filter: drop-shadow(0 0 8px var(--logo-glow));
+  }
+}
+
+/* Animations */
+@keyframes draw-circuit {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Marquee / Carousel */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-track[data-direction="right"] {
+  animation-direction: reverse;
+}
+
+.marquee-container:hover .marquee-track,
+.marquee-track.paused {
+  animation-play-state: paused;
+}
