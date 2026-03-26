@@ -5,6 +5,7 @@ interface MarqueeProps {
   direction?: 'left' | 'right';
   speed?: number; // pixels per second
   paused?: boolean;
+  pauseOnHover?: boolean;
   className?: string;
 }
 
@@ -13,6 +14,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   direction = 'left',
   speed = 40,
   paused = false,
+  pauseOnHover = true,
   className = '',
 }) => {
   const contentRef = React.useRef<HTMLDivElement>(null);
@@ -42,7 +44,10 @@ const Marquee: React.FC<MarqueeProps> = ({
   }, [speed]);
 
   return (
-    <div className={`marquee-container overflow-hidden ${className}`}>
+    <div 
+      className={`marquee-container overflow-hidden ${className}`}
+      data-pause-on-hover={pauseOnHover}
+    >
       <div
         className="marquee-track"
         data-direction={direction}

@@ -256,7 +256,7 @@
   animation-direction: reverse;
 }
 
-.marquee-container:hover .marquee-track,
+.marquee-container[data-pause-on-hover="true"]:hover .marquee-track,
 .marquee-track.paused {
   animation-play-state: paused;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -47,10 +47,16 @@ const Footer: React.FC = () => {
               Follow Us
             </h4>
             <div className="flex gap-3 mt-5">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Facebook, url: 'https://facebook.com/jpcs.uemanila' },
+                { Icon: Instagram, url: 'https://instagram.com/jpcs.uemanila' },
+                { Icon: Linkedin, url: 'https://linkedin.com/company/jpcs-uemanila' }
+              ].map(({ Icon, url }, i) => (
                 <a 
                   key={i} 
-                  href="#" 
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-white/10 dark:bg-white/5 flex items-center justify-center text-white dark:text-[var(--foreground)] transition-all hover:bg-[var(--c-orange)] hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--c-orange)]/50"
                 >
                   <Icon size={18} />
