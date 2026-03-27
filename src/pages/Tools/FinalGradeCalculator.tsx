@@ -451,6 +451,7 @@ const FinalGradeCalculator: React.FC = () => {
         dataActions={[
           { label: "Clear Entries", icon: Trash2, onClick: clearAllData, className: "hover:text-red-500 hover:bg-red-500/10" }
         ]}
+        showDisclaimer={true}
       />
 
       {showSettings && (

@@ -244,6 +244,7 @@ const GWACalculator: React.FC = () => {
           },
           { label: "Clear All", icon: Trash2, onClick: clearAllGrades, className: "hover:bg-[var(--danger)]/10 hover:text-[var(--danger)]" }
         ]}
+        showDisclaimer={true}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

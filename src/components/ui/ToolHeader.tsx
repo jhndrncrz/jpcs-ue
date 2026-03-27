@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { type LucideIcon, HelpCircle } from 'lucide-react';
+import { type LucideIcon, HelpCircle, ShieldAlert } from 'lucide-react';
 import HelpModal from './HelpModal';
 
 interface ToolAction {
@@ -17,6 +17,7 @@ interface ToolHeaderProps {
   secondaryActions?: ToolAction[];
   dataActions?: ToolAction[];
   helpContent?: React.ReactNode;
+  showDisclaimer?: boolean;
 }
 
 const ToolHeader: React.FC<ToolHeaderProps> = ({ 
@@ -25,7 +26,8 @@ const ToolHeader: React.FC<ToolHeaderProps> = ({
   primaryActions = [], 
   secondaryActions = [],
   dataActions = [],
-  helpContent
+  helpContent,
+  showDisclaimer = false
 }) => {
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
@@ -61,6 +63,25 @@ const ToolHeader: React.FC<ToolHeaderProps> = ({
           ))}
         </div>
       </div>
+
+      {showDisclaimer && (
+        <div className="mt-8 p-6 bg-[var(--surface)] border border-[var(--border)] rounded-2xl flex gap-5 items-start relative overflow-hidden group transition-all hover:border-[var(--primary)]/50">
+          <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary)] to-[var(--c-orange)] opacity-[0.03] group-hover:opacity-[0.07] transition-opacity" />
+          
+          <div className="relative z-10 p-2.5 bg-[var(--primary)]/10 rounded-xl shrink-0">
+             <ShieldAlert size={22} className="text-[var(--primary)]" />
+          </div>
+          
+          <div className="relative z-10 flex flex-col gap-1.5">
+            <span className="font-heading font-black text-[10px] uppercase tracking-[0.2em] text-[var(--primary)]">
+              Official Disclaimer
+            </span>
+            <p className="font-body text-xs text-[var(--foreground-muted)] leading-relaxed max-w-4xl">
+              All calculations provided by this utility are <strong>unofficial</strong> and intended for <strong>estimation purposes only</strong>. Final results are subject to official university records, in accordance with the UE Student Manual and faculty discretion. Please refer to official university announcements for finalized academic results.
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-b border-[var(--border)]/30">
         <div className="flex items-center gap-2">

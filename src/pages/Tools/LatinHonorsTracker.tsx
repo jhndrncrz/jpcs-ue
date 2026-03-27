@@ -68,6 +68,7 @@ const LatinHonorsTracker: React.FC = () => {
         title="Honors & Progress Tracker"
         description="A unified view of your academic journey across all years and semesters, focused on Latin Honors standing."
         helpContent={<LatinHonorsGuide />}
+        showDisclaimer={true}
       />
       
       <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
